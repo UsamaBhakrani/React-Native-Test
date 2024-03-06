@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
   search: { padding: 10 },
   list: { flex: 1, padding: 16 },
   heading: {
+    paddingTop:50,
     fontSize: 25,
     fontWeight: "bold",
   },
