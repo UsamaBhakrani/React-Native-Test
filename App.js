@@ -1,21 +1,24 @@
 import { StatusBar as ExpoStatusBar } from "expo-status-bar";
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  Platform,
-  StatusBar,
-} from "react-native";
+import { useState } from "react";
+import { StyleSheet, Text, View, SafeAreaView, StatusBar } from "react-native";
+import { Searchbar } from "react-native-paper";
+import OrderTable from "./src/components/ordertable/components/OrderTable";
 
 export default function App() {
+  const [searchQuery, setSearchQuery] = useState(null);
+
   return (
     <SafeAreaView style={styles.container}>
-      <View style={{ padding: 16, backgroundColor: "dodgerblue" }}>
-        <Text>Search</Text>
+      <View style={styles.search}>
+        <Searchbar
+          placeholder="Search"
+          onChangeText={setSearchQuery}
+          value={searchQuery}
+        />
       </View>
-      <View style={{ flex: 1, padding: 16, backgroundColor: "gold" }}>
-        <Text>Blank Canvas</Text>
+      <View style={styles.list}>
+        <Text style={styles.heading}>Orders Table</Text>
+        <OrderTable />
       </View>
       <ExpoStatusBar style="auto" />
     </SafeAreaView>
@@ -27,6 +30,10 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: StatusBar.currentHeight,
   },
-  card: {},
-  text: {},
+  search: { padding: 10 },
+  list: { flex: 1, padding: 16 },
+  heading: {
+    fontSize: 15,
+    fontWeight: "bold",
+  },
 });
