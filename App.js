@@ -17,7 +17,7 @@ export default function App() {
         />
       </View>
       <View style={styles.list}>
-        <Text style={styles.heading}>Orders Table</Text>
+        <Text style={styles.heading}>Orders Summary</Text>
         <OrderTable />
       </View>
       <ExpoStatusBar style="auto" />
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
   search: { padding: 10 },
   list: { flex: 1, padding: 16 },
   heading: {
-    fontSize: 15,
+    fontSize: 25,
     fontWeight: "bold",
   },
 });
